@@ -25,10 +25,13 @@ export function fakeSql(state: FakeState) {
     const query = strings.join("?").replace(/\s+/g, " ");
 
     if (query.includes("left join rsvps")) {
-      return state.events.map((e) => ({
-        ...e,
-        spots_left: e.capacity - state.rsvps.filter((r) => r.event_id === e.id).length,
-      }));
+      // The list query has no values; the single-event query passes the id.
+      return state.events
+        .filter((e) => values.length === 0 || e.id === values[0])
+        .map((e) => ({
+          ...e,
+          spots_left: e.capacity - state.rsvps.filter((r) => r.event_id === e.id).length,
+        }));
     }
     if (query.includes("for update")) {
       const event = state.events.find((e) => e.id === values[0]);

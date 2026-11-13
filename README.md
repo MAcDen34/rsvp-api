@@ -6,7 +6,14 @@ and a readable message, and the hard cases (a full event, a double sign-up,
 a database outage, two people taking the last place at once) are covered by
 automated tests.
 
-**Live:** https://rsvp-api-opal.vercel.app/api/events
+**Live:** https://rsvp-api-opal.vercel.app
+
+## Web interface
+
+The home page lists upcoming events, with a row of seats showing how full
+each one is. Each event has its own page and shareable link, with a form to
+reserve a place. A booking ends with one burst of confetti, skipped for
+anyone whose device asks for reduced motion.
 
 ## Endpoints
 

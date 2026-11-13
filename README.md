@@ -1,3 +1,5 @@
+![Tests](https://github.com/MAcDen34/rsvp-api/actions/workflows/test.yml/badge.svg)
+
 # RSVP API
 
 A small API for signing up to events with limited places, built to practise

@@ -5,8 +5,10 @@
  * Monitoring tools call a route like this to know whether to raise an alarm.
  */
 
-import { NextResponse } from "next/server";
+import { connection, NextResponse } from "next/server";
 
-export function GET() {
+export async function GET() {
+  // Run at request time, so the time below is always now, never the build time.
+  await connection();
   return NextResponse.json({ status: "ok", time: new Date().toISOString() });
 }
